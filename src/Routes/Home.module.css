@@ -1,9 +1,15 @@
-.cardgrid{
-    display: flex;
-    justify-content: space-evenly;
-    gap: 1rem;
-    width: 90vw;
-    height: auto;
-    flex-wrap: wrap;
-    margin: 0 auto;
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0.4rem;
+}
+
+.cardgrid {
+  display: flex;
+  justify-content: start;
+  gap: 1rem;
+  width: 90vw;
+  height: auto;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }
