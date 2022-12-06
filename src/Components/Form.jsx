@@ -15,8 +15,8 @@ const Form = () => {
       email: ""
     },
     validationSchema: Yup.object({
-      nombre: Yup.string().required("Debes ingresar un nombre").length(5),
-      apellido: Yup.string().required("Debes ingresar un apellido").length(5),
+      nombre: Yup.string().required("Debes ingresar un nombre").min(5),
+      apellido: Yup.string().required("Debes ingresar un apellido").min(5),
       email: Yup.string().required("Debes ingresar un apellido"),
     }),
     onSubmit: (data) =>{

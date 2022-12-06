@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import imagenDoctor from "../Routes/doctor.jpg";
 import styles from "./Card.module.css";
 
@@ -16,7 +17,7 @@ const Card = ({ odontologo }) => {
 
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
       <img src={imagenDoctor} alt="Imagen doctor" />
-      <h2>{odontologo.name}</h2>
+      <Link to={`/odontologo/${odontologo.id}`}><h2>{odontologo.name}</h2></Link> 
       <h4>{odontologo.username}</h4>
       <button onClick={addFav} className="favButton">
         ⭐
