@@ -12,6 +12,11 @@ const Home = () => {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
       .then((res) => setOdontologos(res.data));
+
+    const favsJson = localStorage.getItem('favs');
+    if (!favsJson) {
+      localStorage.setItem('favs', JSON.stringify([]));
+    }
   }, []);
 
   return (
