@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-
-
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
@@ -35,10 +33,7 @@ const Detail = () => {
         <div style={{padding:"8px", width:"25%", border:"solid black 1px", textAlign:"center"}}>{odontologoDetalle.email}</div>
         <div style={{padding:"8px", width:"25%", border:"solid black 1px", textAlign:"center"}}>{odontologoDetalle.phone}</div>
         <div style={{padding:"8px", width:"25%", border:"solid black 1px", textAlign:"center"}}>{odontologoDetalle.website}</div>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
+
 
       </main>
       {/* <table  border="1" width="100%" align="center" cellpadding="10px">

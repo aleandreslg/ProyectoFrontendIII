@@ -6,7 +6,7 @@ h1 {
 
 .cardgrid {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   gap: 1rem;
   width: 90vw;
   height: auto;
