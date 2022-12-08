@@ -42,7 +42,7 @@ const Card = ({ odontologo, setFavsPageItems }) => {
       <h2>{odontologo.name}</h2>
       <h4>{odontologo.username}</h4>
       {/* <h4>{odontologo.id}</h4> */}
-      <button onClick={handleFavClick} className="favButton" style={{backgroundColor: state.btColor}}>
+      <button onClick={handleFavClick} className="favButton" style={{backgroundColor: state.btColor, fontSize:"1.4rem"}}>
         ⭐
       </button>
     </div>

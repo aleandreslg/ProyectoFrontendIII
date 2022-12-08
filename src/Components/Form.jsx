@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 // import "../index.css"
 import { TextField, Grid, Button } from "@mui/material"
 import { useFormik } from "formik"
 import * as Yup from "yup"
+import { ContextGlobal } from "../Components/utils/global.context";
 
 
 const Form = () => {
   //Aqui deberan implementar el form completo con sus validaciones
+  const { state, dispatch} = useContext(ContextGlobal)
 
   const {/*handleChange,*/ handleSubmit, values, setFieldValue, errors} = useFormik({
     initialValues: {
@@ -27,16 +29,18 @@ const Form = () => {
 
   return (
     <div>
-      <form className="form-container" onSubmit={handleSubmit}>
+      <form className="form-container" onSubmit={handleSubmit} style={{display:"flex", flexDirection:"column", alignItems:"center", flexWrap:"wrap", filter: state.bgFlag === "DARK" ? "invert(100%)" : null}}>
         <Grid 
           container
           alignItems="center" 
           justifyContent="space-evenly"
           spacing={2}
-          sx={{width:"100%"}}
+          sx={{width:"100%", }}
           >
           <Grid item xs={12} sm={10} md={7}>
-            <TextField 
+            <TextField
+            color="" 
+            
             type="text" 
             label="Ingrese su nombre" 
             variant="outlined" 
@@ -81,7 +85,7 @@ const Form = () => {
             />
           </Grid>
         </Grid>
-        <Button type="submit" variant="contained" >Enviar</Button>
+        <Button color="error" type="submit" variant="contained" style={{width:"200px", margin:"40px"}}>Enviar</Button>
       </form>
     </div>
   );

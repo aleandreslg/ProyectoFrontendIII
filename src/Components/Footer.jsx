@@ -5,7 +5,17 @@ import { ContextGlobal } from './utils/global.context'
 const Footer = () => {
   const { state } = useContext(ContextGlobal)
   return (
-    <footer style={{display:"flex", justifyContent:"space-between", alignItems:"center", margin:"50px", width:"90vw"}}>
+    <footer 
+      style={{
+        display:"flex",
+        position: "relative",
+        left: "0",
+        bottom: "-70px",
+        justifyContent:"space-between", 
+        alignItems:"center", 
+        padding:"50px", 
+        width:"90vw"
+      }}>
       <div style={{display:"flex", alignItems:"center", marginLeft:"50px"}}>
         <p>Powered by</p>
         <img src={logo} alt="DH-logo" style={{ width: "300px", filter: state.bgFlag === "DARK" ? "invert(100%)" : null }} />
