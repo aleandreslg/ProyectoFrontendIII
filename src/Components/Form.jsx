@@ -8,7 +8,7 @@ import { ContextGlobal } from "../Components/utils/global.context";
 
 const Form = () => {
   //Aqui deberan implementar el form completo con sus validaciones
-  const { state, dispatch} = useContext(ContextGlobal)
+  const { state } = useContext(ContextGlobal)
 
   const {/*handleChange,*/ handleSubmit, values, setFieldValue, errors} = useFormik({
     initialValues: {
