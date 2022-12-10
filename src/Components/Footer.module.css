@@ -1,0 +1,41 @@
+.irArriba{
+    background-color: #d60000; 
+    color: white; 
+    display: block; 
+    padding: 1rem; 
+    text-align: center; 
+    cursor: pointer;
+    margin-top: 3rem 
+}
+.footerContainer{
+    display:flex;
+    margin-top: auto;
+    position: relative;
+    left: 0;
+    justify-content:space-between; 
+    align-items: center;
+    padding: 50px; 
+    width: 90vw
+}
+
+.divLogoDH{
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.logo{
+    width: 300px;
+}
+
+.iconContainer{
+    width:200px;
+    display: flex; 
+    justify-content:space-between; 
+    gap:20px;
+    align-items:center
+}
+
+.icon{
+    width: 40px
+}

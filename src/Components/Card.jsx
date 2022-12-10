@@ -1,12 +1,12 @@
 import React, {useContext} from "react";
-import imagenDoctor from "../Routes/doctor.jpg";
+import imagenDoctor from "../Images/doctor.jpg";
 import styles from "./Card.module.css";
 import getFavsStore from "./utils/getFavsStore";
 import { Link } from "react-router-dom";
 import { ContextGlobal } from "../Components/utils/global.context";
 
 const Card = ({ odontologo, setFavsPageItems }) => {
-  const { state, dispatch} = useContext(ContextGlobal)
+  const { state} = useContext(ContextGlobal)
 
   const updateFavs = (favs) => {
     if (setFavsPageItems) {
@@ -22,10 +22,10 @@ const Card = ({ odontologo, setFavsPageItems }) => {
     let newFavs = [];
     if (!favsStore.find(fav => fav.id === odontologo.id)) {
       newFavs = [...favsStore, odontologo];
-      alert("Se agregó a favoritos")
+      alert("Dentist successfully added from favs")
     } else {
       newFavs = favsStore.filter(fav => fav.id !== odontologo.id);
-      alert("Se eliminó de favoritos")
+      alert("Dentist successfully removed from favs")
     }
 
     updateFavs(newFavs);
@@ -41,8 +41,7 @@ const Card = ({ odontologo, setFavsPageItems }) => {
       <Link to={`/odontologo/${odontologo.id}`}><img src={imagenDoctor} alt="Imagen doctor" /></Link>
       <h2>{odontologo.name}</h2>
       <h4>{odontologo.username}</h4>
-      {/* <h4>{odontologo.id}</h4> */}
-      <button onClick={handleFavClick} className="favButton" style={{backgroundColor: state.btColor, fontSize:"1.4rem"}}>
+      <button onClick={handleFavClick} className={styles.button} style={{backgroundColor: state.btColor}}>
         ⭐
       </button>
     </div>

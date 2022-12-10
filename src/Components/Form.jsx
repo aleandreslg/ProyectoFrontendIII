@@ -1,92 +1,113 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 // import "../index.css"
-import { TextField, Grid, Button } from "@mui/material"
-import { useFormik } from "formik"
-import * as Yup from "yup"
+import { TextField, Grid, Button } from "@mui/material";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import { ContextGlobal } from "../Components/utils/global.context";
-
+import styles from "./Form.module.css";
 
 const Form = () => {
   //Aqui deberan implementar el form completo con sus validaciones
-  const { state } = useContext(ContextGlobal)
+  const { state } = useContext(ContextGlobal);
 
-  const {/*handleChange,*/ handleSubmit, values, setFieldValue, errors} = useFormik({
-    initialValues: {
-      nombre: "",
-      apellido: "",
-      email: ""
-    },
-    validationSchema: Yup.object({
-      nombre: Yup.string().required("Debes ingresar un nombre").min(5),
-      apellido: Yup.string().required("Debes ingresar un apellido").min(5),
-      email: Yup.string().required("Debes ingresar un mail"),
-    }),
-    onSubmit: (data) =>{
-      console.log(data);
-    }
-  })
+  const [datos, setDatos] = useState()
+
+  const { /*handleChange,*/ handleSubmit, values, setFieldValue, errors } =
+    useFormik({
+      initialValues: {
+        name: "",
+        lastName: "",
+        email: "",
+      },
+      validationSchema: Yup.object({
+        name: Yup.string().required("Enter your name").min(5),
+        lastName: Yup.string().required("Enter your last name").min(5),
+        email: Yup.string().required("Enter your mail"),
+      }),
+      onSubmit: (data) => {
+        console.log(data);
+        
+        setDatos(<p>Thank you {data.name} {data.lastName}, we will contact you via email very soon</p>)
+            
+        
+        
+      },
+    });
 
 
   return (
     <div>
-      <form className="form-container" onSubmit={handleSubmit} style={{display:"flex", flexDirection:"column", alignItems:"center", flexWrap:"wrap", filter: state.bgFlag === "DARK" ? "invert(100%)" : null}}>
-        <Grid 
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit}
+        style={{ filter: state.bgFlag === "DARK" ? "invert(100%)" : null }}
+      >
+        <Grid
           container
-          alignItems="center" 
+          alignItems="center"
           justifyContent="space-evenly"
           spacing={2}
-          sx={{width:"100%", }}
-          >
+          sx={{ width: "100%" }}
+        >
           <Grid item xs={12} sm={10} md={7}>
             <TextField
-            color="" 
-            
-            type="text" 
-            label="Ingrese su nombre" 
-            variant="outlined" 
-            fullWidth
-            // name="nombre"
-            onChange={(e)=>{
-              setFieldValue("nombre", e.target.value)
-            }}
-            value={values.nombre}
-            error={errors.nombre}
-            helperText={errors.email}
+              color=""
+              type="text"
+              label="Enter your name"
+              variant="outlined"
+              fullWidth
+              // name="nombre"
+              onChange={(e) => {
+                setFieldValue("name", e.target.value);
+              }}
+              value={values.name}
+              error={errors.name}
+              helperText={errors.name}
             />
           </Grid>
           <Grid item xs={12} sm={10} md={7}>
-            <TextField 
-            type="text" 
-            label="Ingrese su apellido" 
-            variant="outlined" 
-            fullWidth
-            // name="apellido"
-            onChange={(e)=>{
-              setFieldValue("apellido", e.target.value)
-            }}
-            value={values.apellido}
-            error={errors.apellido}
-            helperText={errors.email}
+            <TextField
+              type="text"
+              label="Enter your last name"
+              variant="outlined"
+              fullWidth
+              // name="apellido"
+              onChange={(e) => {
+                setFieldValue("lastName", e.target.value);
+              }}
+              value={values.lastName}
+              error={errors.lastName}
+              helperText={errors.lastName}
             />
           </Grid>
-          <Grid item xs={12} sm={10} md={7} >
-            <TextField 
-            type="email" 
-            label="Ingrese su email" 
-            variant="outlined" 
-            fullWidth
-            // name="email"
-            onChange={(e)=>{
-              setFieldValue("email", e.target.value)
-            }}
-            value={values.email}
-            error={errors.email}
-            helperText={errors.email}
+          <Grid item xs={12} sm={10} md={7}>
+            <TextField
+              type="email"
+              label="Enter your email"
+              variant="outlined"
+              fullWidth
+              // name="email"
+              onChange={(e) => {
+                setFieldValue("email", e.target.value);
+              }}
+              value={values.email}
+              error={errors.email}
+              helperText={errors.email}
             />
           </Grid>
         </Grid>
-        <Button color="error" type="submit" variant="contained" style={{width:"200px", margin:"40px"}}>Enviar</Button>
+        <Button
+          color="error"
+          type="submit"
+          variant="contained"
+          style={{ width: "200px", margin: "40px" }}
+        >
+          Send
+        </Button>
       </form>
+      <h4 className={styles.message} >
+        {datos}
+      </h4>
     </div>
   );
 };

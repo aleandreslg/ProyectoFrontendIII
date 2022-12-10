@@ -1,0 +1,16 @@
+.main{
+    display:flex;
+    flex-wrap:wrap;
+    border: solid black 2px;
+}
+
+.mainContainer{
+    min-height:70vh
+}
+
+.field{
+    padding:8px;
+    width:25%;
+    border:solid black 1px;
+    text-align:center
+}

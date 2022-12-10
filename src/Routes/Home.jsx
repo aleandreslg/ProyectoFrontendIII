@@ -9,7 +9,7 @@ import { ContextGlobal } from "../Components/utils/global.context";
 
 const Home = () => {
   const [odontologos, setOdontologos] = useState([]);
-  const { state, dispatch} = useContext(ContextGlobal)
+  const { state} = useContext(ContextGlobal)
 
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main className="">
+    <main>
       <h1>Home</h1>
       <div className={styles.cardgrid} style={{backgroundColor: state.bgColor, color: state.ftColor}}>
         {/* Aqui deberias renderizar las cards */}
