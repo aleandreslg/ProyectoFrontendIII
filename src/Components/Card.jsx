@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext, useState } from "react";
 import imagenDoctor from "../Images/doctor.jpg";
 import styles from "./Card.module.css";
 import getFavsStore from "./utils/getFavsStore";
@@ -8,6 +8,11 @@ import { ContextGlobal } from "../Components/utils/global.context";
 const Card = ({ odontologo, setFavsPageItems }) => {
   const { state} = useContext(ContextGlobal)
 
+  const favs = getFavsStore()
+
+  // const isFav = favs.find(fav => fav.id === odontologo.id)
+  const [isFav, setIsFav] = useState(favs.find(fav => fav.id === odontologo.id));
+
   const updateFavs = (favs) => {
     if (setFavsPageItems) {
       setFavsPageItems(favs);
@@ -15,16 +20,18 @@ const Card = ({ odontologo, setFavsPageItems }) => {
     const favsJson = JSON.stringify(favs);
     localStorage.setItem('favs', favsJson);
   }
-   
+
   const handleFavClick = () => {
     let favsStore = getFavsStore();
 
     let newFavs = [];
     if (!favsStore.find(fav => fav.id === odontologo.id)) {
       newFavs = [...favsStore, odontologo];
+      setIsFav(true)
       alert("Dentist successfully added from favs")
     } else {
       newFavs = favsStore.filter(fav => fav.id !== odontologo.id);
+      setIsFav(false)
       alert("Dentist successfully removed from favs")
     }
 
@@ -42,7 +49,7 @@ const Card = ({ odontologo, setFavsPageItems }) => {
       <h2>{odontologo.name}</h2>
       <h4>{odontologo.username}</h4>
       <button onClick={handleFavClick} className={styles.button} style={{backgroundColor: state.btColor}}>
-        ⭐
+        {!isFav ? '⭐' : '❌ '}
       </button>
     </div>
   );
