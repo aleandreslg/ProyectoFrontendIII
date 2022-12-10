@@ -14,7 +14,7 @@ const reducerFunction = (state, { bgFlag }) => { //siempre lleva dos parametros,
         bgFlag: "DARK",
         bgColor: "#1e1e1e",
         ftColor: "#FFFFFF",
-        btColor: "#0f0f0f"
+        btColor: "#222222"
         
       }
     default:

@@ -10,32 +10,37 @@ import Footer from "./Components/Footer";
 import { ContextGlobal } from "./Components/utils/global.context";
 
 function App() {
-  const { state, dispatch } = useContext(ContextGlobal);
+  const { state } = useContext(ContextGlobal);
   return (
-    <div
-      className="App"
+    <main
       style={{
         backgroundColor: state.bgColor,
         color: state.ftColor,
         width: "100%",
+        height: "100vh",
         minHeight: "100%",
       }}
     >
-      {" "}
-      {/*Agregar esto!!!!!!!!*/}
-      {/* <h1>App</h1> */}
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/favs" element={<Favs />} />
-          <Route path="/odontologo/:id" element={<Detail />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </div>
+      <div
+        className="App"
+        style={{ backgroundColor: state.bgColor, color: state.ftColor }}
+      >
+        {" "}
+        {/*Agregar esto!!!!!!!!*/}
+        {/* <h1>App</h1> */}
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/favs" element={<Favs />} />
+            <Route path="/odontologo/:id" element={<Detail />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </div>
+    </main>
   );
 }
 
