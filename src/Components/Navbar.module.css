@@ -7,6 +7,10 @@
 
 .navbar {
   justify-content: space-between;
+
+  width:100%; 
+  padding-right: 180px; 
+  padding-left: 130px
 }
 
 .navbar h1 span {
@@ -35,4 +39,22 @@
 
 .navbar button span {
   font-size: 0.7rem;
+}
+
+.titulo{
+  text-decoration:none
+}
+
+.titulo h1{
+  font-size: 40px
+}
+
+.linkNav{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.buttonTheme{
+  font-size: 2rem;
+  width: 60px;
 }

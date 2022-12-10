@@ -11,23 +11,13 @@ import { ContextGlobal } from "./Components/utils/global.context";
 
 function App() {
   const { state } = useContext(ContextGlobal);
+
   return (
     <main
-      style={{
-        backgroundColor: state.bgColor,
-        color: state.ftColor,
-        width: "100%",
-        height: "100vh",
-        minHeight: "100%",
-      }}
+      className={styles.appContainer}
+      style={{ backgroundColor: state.bgColor, color: state.ftColor }}
     >
-      <div
-        className="App"
-        style={{ backgroundColor: state.bgColor, color: state.ftColor }}
-      >
-        {" "}
-        {/*Agregar esto!!!!!!!!*/}
-        {/* <h1>App</h1> */}
+      <div style={{ backgroundColor: state.bgColor, color: state.ftColor }}>
         <BrowserRouter>
           <Navbar />
           <Routes>
