@@ -10,7 +10,6 @@ const Card = ({ odontologo, setFavsPageItems }) => {
 
   const favs = getFavsStore()
 
-  // const isFav = favs.find(fav => fav.id === odontologo.id)
   const [isFav, setIsFav] = useState(favs.find(fav => fav.id === odontologo.id));
 
   const updateFavs = (favs) => {
